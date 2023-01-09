@@ -19,6 +19,22 @@ module.exports = {
                 test: /\.s[ac]ss$/i,
                 use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
             },
+            {
+                test: /\.html$/,
+                use: [
+                    'file-loader',
+                    'extract-loader',
+                    'html-loader',
+                    {
+                        loader: 'posthtml-loader',
+                        options: {
+                            plugins: [
+                                require('posthtml-include')()
+                            ]
+                        }
+                    }
+                ]
+            },
         ]
     },
     plugins: [

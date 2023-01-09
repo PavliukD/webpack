@@ -24,6 +24,7 @@
     "@babel/preset-env": "^7.20.2",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
+    "extract-loader": "^5.1.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.7.2",
@@ -36,6 +37,10 @@
   },
   "dependencies": {
     "axios": "^1.2.2",
-    "handlebars": "^4.7.7"
+    "file-loader": "^6.2.0",
+    "handlebars": "^4.7.7",
+    "posthtml-include": "^1.2.0",
+    "posthtml-loader": "^2.0.1",
+    "posthtml-parser": "^0.11.0"
   }
 }
