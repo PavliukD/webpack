@@ -22,14 +22,19 @@ module.exports = {
             {
                 test: /\.html$/,
                 use: [
-                    'file-loader',
-                    'extract-loader',
-                    'html-loader',
+                    {
+                        loader: 'html-loader',
+                        options: {
+                            minimize: false
+                        }
+                    },
                     {
                         loader: 'posthtml-loader',
                         options: {
                             plugins: [
-                                require('posthtml-include')()
+                                require('posthtml-include')({
+                                    root: './src'
+                                })
                             ]
                         }
                     }
