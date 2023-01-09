@@ -17,13 +17,22 @@ module.exports = {
             },
             {
                 test: /\.s[ac]ss$/i,
-                use: ["style-loader", "css-loader", "sass-loader"],
+                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
             },
         ]
     },
-    plugins: [new HtmlWebpackPlugin({
-        template: 'src/index.html'
-    })],
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'src/index.html',
+            minify: false
+        }),
+        new MiniCssExtractPlugin({
+            attributes: {
+                id: "target",
+                "data-target": "example",
+            },
+        })
+    ],
     devServer: {
         port: 8080,
         open: true,
