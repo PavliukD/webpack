@@ -7,14 +7,15 @@ module.exports = {
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'build'),
-        assetModuleFilename: 'images/[name][ext][query]',
+        // assetModuleFilename: 'images/[name][ext][query]',
     },
     module: {
         rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: ['babel-loader']
+                // use: ['babel-loader'],
+                // type: 'javascript/auto',
             },
             {
                 test: /\.s[ac]ss$/i,
@@ -44,6 +45,9 @@ module.exports = {
             {
                 test: /\.jpe?g$|\.gif$|\.png$|\.PNG$|\.svg$|\.woff(2)?$|\.ttf$|\.eot$/,
                 type: 'asset/resource',
+                generator: {
+                   filename: 'images/[name][ext][query]'
+                }
             }
         ]
     },
