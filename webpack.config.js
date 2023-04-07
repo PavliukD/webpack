@@ -7,6 +7,7 @@ module.exports = {
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'build'),
+        assetModuleFilename: 'images/[name][ext][query]',
     },
     module: {
         rules: [
@@ -40,6 +41,10 @@ module.exports = {
                     }
                 ]
             },
+            {
+                test: /\.jpe?g$|\.gif$|\.png$|\.PNG$|\.svg$|\.woff(2)?$|\.ttf$|\.eot$/,
+                type: 'asset/resource',
+            }
         ]
     },
     plugins: [
